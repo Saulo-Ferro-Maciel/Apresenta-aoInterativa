@@ -5,18 +5,19 @@
   box-sizing: border-box;
 }
 
-p {
-  text-align: left;
-}
-
-
 html, body {
-  overflow: hidden;
   height: 100vh;
+  overflow: hidden;
   font-family: sans-serif;
-  background: #87CEEB;
+  background: linear-gradient(to top, #87CEEB 0%, #b0e0ff 50%, #e0f7ff 100%);
 }
 
+/* Texto */
+p {
+  text-align: justify;
+}
+
+/* Câmera / mundo */
 .camera {
   width: 100vw;
   height: 100vh;
@@ -24,6 +25,7 @@ html, body {
   position: relative;
 }
 
+/* Camadas Parallax */
 .parallax-layer {
   position: absolute;
   top: 0;
@@ -39,11 +41,11 @@ html, body {
 }
 
 .middleground {
-  background: url('https://i.imgur.com/n8KDz0H.png') repeat-x;
   background-size: cover;
   z-index: 1;
 }
 
+/* Mundo do jogo */
 .game-container {
   position: absolute;
   top: 0;
@@ -54,16 +56,17 @@ html, body {
   z-index: 2;
 }
 
+/* Chão */
 .ground {
   position: fixed;
   bottom: 0;
   height: 150px;
   width: 5000px;
-  z-index: 10;
-  overflow: hidden;
-  will-change: transform;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  z-index: 10;
+  will-change: transform;
 }
 
 .grass {
@@ -84,7 +87,6 @@ html, body {
   width: 100%;
   background-repeat: repeat-x;
 }
-
 .dirt-layer.top { background: #a1887f; }
 .dirt-layer.middle { background: #8d6e63; }
 .dirt-layer.bottom { background: #5d4037; }
@@ -95,6 +97,7 @@ html, body {
   opacity: 0.3;
 }
 
+/* Jogador */
 .player {
   position: absolute;
   bottom: calc(150px + 5%);
@@ -128,7 +131,7 @@ html, body {
   to { transform: rotate(-360deg); }
 }
 
-
+/* Nuvens */
 .cloud {
   position: absolute;
   width: 120px;
@@ -138,6 +141,7 @@ html, body {
   opacity: 0.4;
 }
 
+/* Seções de texto */
 .section {
   width: 800px;
   height: 100vh;
@@ -149,17 +153,14 @@ html, body {
   color: white;
   border-right: 2px solid white;
   position: relative;
-  transition: width 0.7s cubic-bezier(.4,2,.6,1), box-shadow 0.5s;
   text-align: center;
   z-index: 1;
-}
-
-.section:nth-child(even),.section {
+  transition: width 0.7s cubic-bezier(.4,2,.6,1), box-shadow 0.5s;
   background: #3f51b594;
 }
 
 .section.expandida {
-  width: 1200px; /* largura expandida */
+  width: 1200px;
   box-shadow: 0 0 40px 10px rgba(0,0,0,0.15);
   z-index: 5;
 }
@@ -176,7 +177,6 @@ html, body {
   transition: opacity 0.7s;
 }
 
-/* Conteúdo extra só aparece quando expandida */
 .conteudo-invisivil-até-tamanho-duplicar {
   opacity: 0;
   pointer-events: none;
@@ -198,14 +198,13 @@ html, body {
   margin-top: 20px;
   display: inline-block;
 }
-
 .logo-square img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-/* Plataformas animadas */
+/* Plataformas */
 .platform {
   position: absolute;
   z-index: 10;
@@ -222,12 +221,14 @@ html, body {
 .platform .dirt-layer.top { background: #a1887f; }
 .platform .dirt-layer.middle { background: #8d6e63; }
 .platform .dirt-layer.bottom { background: #5d4037; }
+
 .platform.tremor {
   animation: tremor 0.5s linear;
 }
 .platform.caindo {
   animation: cair 0.7s linear forwards;
 }
+
 @keyframes tremor {
   0% { transform: translateX(0); }
   20% { transform: translateX(-5px); }
@@ -236,11 +237,12 @@ html, body {
   80% { transform: translateX(5px); }
   100% { transform: translateX(0); }
 }
+
 @keyframes cair {
   to { transform: translateY(200px); opacity: 0; }
 }
 
-/* Estrela girando */
+/* Estrelas */
 .estrela {
   position: absolute;
   font-size: 40px;
@@ -253,13 +255,13 @@ html, body {
   100% { transform: rotate(360deg);}
 }
 
+/* Plataforma invisível no chão */
 .plataforma-invisivel {
   position: absolute;
   left: 0;
-  width: 5000px; /* ou o tamanho do seu mundo */
-  height: 30px;  /* altura do colisor */
-  bottom: 0;     /* encostada no fundo do gameWorld */
-  /* background: rgba(255,0,0,0.2); // só para debug */
+  width: 5000px;
+  height: 30px;
+  bottom: 0;
   z-index: 20;
+  /* background: rgba(255,0,0,0.2); // útil para debug */
 }
-
