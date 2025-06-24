@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apresentação Interativa com Jogo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ground">
+    <div class="grass"></div>
+    <div class="dirt">
+      <div class="dirt-layer top"></div>
+      <div class="dirt-layer middle"></div>
+      <div class="dirt-layer bottom"></div>
+    </div>
+  </div>
+
+  <div class="camera" id="camera">
+    <div class="parallax-layer background" id="bg"></div>
+    <div class="parallax-layer middleground" id="mg"></div>
+
+    <div class="game-container" id="gameWorld">
+      <div class="player" id="player"></div>
+
+      <div class="section" data-grupo="A">
+        <div class="section-content">
+          🏁 Início do Trabalho
+          
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <div class="logo-square">
+              <img src="https://saulo-ferro-maciel.github.io/SaudePlus/src/logo-saude++.png" alt="Logo Saúde Plus" />
+            </div>
+            <h3>Saúde Plus<br></h3>
+            <p style="font-size: 18px;">
+              <br>A 4 Team desde o início comprometeu-se inovar.
+              <br>Decidimos fazer uma eleição de qual segmento de software seria desenvolvido;
+              <br>Entre rede de construção, gerenciamento de petshop, e de ambientes hospitalares.
+              <br>
+              <br>Elegimos que seria últil sistema para médicos com uma interface mais eficiente e atual.
+              <br>Assim demos origem ao Saúde Plus.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="section" data-grupo="B">
+        <div class="section-content">
+          📖 Introdução
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <p style="font-size: 18px;">
+              <br>Usamos a metodologia ágil para o desenvolvimento do Saúde Plus de foma um SPT (Sistema para Trabalho).
+              <br>Como o intuito é ser um sistema medico com interface agradável e eficiente,
+              <br>fizemos uma pesquisa de mercado para entender o que os médicos
+              <br>esperam de um sistema e como UX e UI podem ser integrados na rotina.
+              <br><br>
+            </p>
+            <div class="elementos-lado-a-lado" style="display: flex; gap: 10px;">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd9Hof3XRB4zzuu7kCsDFtvif52V2nmgJGAIdAhxjnA2mFDGPUzyjT0ATwBhwICZ1vNtA&usqp=CAU" alt="Imagem 1" style="width: 350px; height: auto;">
+              <img src="https://blog.hidoctor.com.br/fmfiles/index.asp/::hidoctor::/blog/2019/09/Interface-software-medico-01.png" alt="Imagem 2" style="width: 380px; height: auto;">
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="section" data-grupo="C">
+        <div class="section-content">
+          🔎 Pesquisa
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <p style="font-size: 18px;">
+              <br>Para produção do software, decidimos usar produção vanilla, ou seja, sem frameworks.
+              <br>Para criar um prototipo hospedamos no GitHub Pages.
+              <br>A interface foi desenvolvida com HTML, CSS e JavaScript.
+              <br>Retimoas como fonte de inspiração redes sociais, como Instagram e Facebook,
+              <br>para criar uma interface mais amigável e intuitiva.
+              <br><br>
+            </p>
+            <div class="elementos-lado-a-lado" style="display: flex; gap: 10px;">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd9Hof3XRB4zzuu7kCsDFtvif52V2nmgJGAIdAhxjnA2mFDGPUzyjT0ATwBhwICZ1vNtA&usqp=CAU" alt="Imagem 1" style="width: 350px; height: auto;">
+              <img src="https://blog.hidoctor.com.br/fmfiles/index.asp/::hidoctor::/blog/2019/09/Interface-software-medico-01.png" alt="Imagem 2" style="width: 380px; height: auto;">
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="section" data-grupo="D">
+        <div class="section-content">
+          📐 Metodologia
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <!-- Conteúdo extra D -->
+             <p style="font-size: 18px;">
+              <br>Decidimoos usar o kanbam para organizar as tarefas do projeto.
+              <br>A equipe foi dividida em três grupos:
+              <br>1. Grupo de pesquisa,
+              <br>2. Grupo de desenvolvimento, 
+              <br>3. Grupo de testes
+              <br><br>
+              </p>
+             
+            <div class="elementos-lado-a-lado" style="display: flex; gap: 10px; align-items: flex-start; max-width: 100%; flex-wrap: wrap;">
+            <img src="https://github.com/Saulo-Ferro-Maciel/Apresenta-aoInterativa/blob/main/image%20exeplos.png?raw=true"
+                alt="Imagem 1"
+                style="max-width: 60%; height: auto; object-fit: contain;">
+            <img src="https://github.com/Saulo-Ferro-Maciel/Apresenta-aoInterativa/blob/main/mockup%20original.png?raw=true"
+                alt="Imagem 2"
+                style="max-width: 35%; height: auto; object-fit: contain;">
+          </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="section" data-grupo="E">
+        <div class="section-content">
+          📈 Resultados
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <!-- Conteúdo extra E -->
+
+            <p style="font-size: 18px;">
+              <br>Conseguimos fazer o prototipo funcionar com as funcionalidades básicas.
+              <br>O sistema permite o cadastro de administradores médicos, pacientes e consultas.
+              <br>Os administradores podem gerir o estoque de utensílios médicos.
+              <br>
+            </p>
+             
+            <div class="elementos-lado-a-lado" style="display: flex; gap: 10px; align-items: flex-start; max-width: 100%; flex-wrap: wrap;">
+            <img src="https://github.com/Saulo-Ferro-Maciel/Apresenta-aoInterativa/blob/main/fluxoLogin.png?raw=true"
+                alt="Imagem 1"
+                style="max-width: 50%; height: auto; object-fit: contain;">
+            <img src="https://github.com/Saulo-Ferro-Maciel/Apresenta-aoInterativa/blob/main/flucxoAmarzenagem.png?raw=true"
+                alt="Imagem 2"
+                style="max-width: 28%; height: auto; object-fit: contain;">
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="section" data-grupo="F">
+        <div class="section-content">
+          ✅ Conclusão
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <!-- Conteúdo extra F -->
+             <p style="font-size: 18px;">
+              <br>Por fim, o projeto Saúde Plus foi um sucesso.
+              <br>Conseguimos fazer o prototipo funcionar com as funcionalidades básicas.
+              <br>Aprendemos muito sobre desenvolvimento de software e metodologias ágeis.
+              <br>O sistema foi desenvolvido com uma interface amigável e intuitiva,
+              <br>com bastos custos de desenvolvimento.
+              <br>O prototipo está hospedado no GitHub Pages e pode ser acessado
+              <br>através do link: <a href="https://saulo-ferro-maciel.github.io/SaudePlus/login.html" target="_blank">Saúde Plus</a>.
+              <br>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="section" data-grupo="G">
+        <div class="section-content">
+          🎓 Fim do Trabalho
+          <br>
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <img src="https://i1.sndcdn.com/artworks-000120577653-v6pkko-t500x500.jpg" alt="Fim do Trabalho" style="width: 40%; height: auto;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script  type="module" src="script.js"></script>
+</body>
+</html>
