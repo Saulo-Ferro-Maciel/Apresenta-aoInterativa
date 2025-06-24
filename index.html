@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apresentação Interativa com Jogo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ground">
+    <div class="grass"></div>
+    <div class="dirt">
+      <div class="dirt-layer top"></div>
+      <div class="dirt-layer middle"></div>
+      <div class="dirt-layer bottom"></div>
+    </div>
+  </div>
+
+  <div class="camera" id="camera">
+    <div class="parallax-layer background" id="bg"></div>
+    <div class="parallax-layer middleground" id="mg"></div>
+
+    <div class="game-container" id="gameWorld">
+      <div class="player" id="player"></div>
+
+      <div class="section" data-grupo="A">
+        <div class="section-content">
+          🏁 Início do Trabalho
+          
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <div class="logo-square">
+              <img src="https://saulo-ferro-maciel.github.io/SaudePlus/src/logo-saude++.png" alt="Logo Saúde Plus" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section" data-grupo="B">
+        <div class="section-content">
+          📖 Introdução
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <!-- Conteúdo extra B -->
+          </div>
+        </div>
+      </div>
+      <div class="section" data-grupo="C">
+        <div class="section-content">
+          🔎 Pesquisa
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <!-- Conteúdo extra C -->
+          </div>
+        </div>
+      </div>
+      <div class="section" data-grupo="D">
+        <div class="section-content">
+          📐 Metodologia
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <!-- Conteúdo extra D -->
+          </div>
+        </div>
+      </div>
+      <div class="section" data-grupo="E">
+        <div class="section-content">
+          📈 Resultados
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <!-- Conteúdo extra E -->
+          </div>
+        </div>
+      </div>
+      <div class="section" data-grupo="F">
+        <div class="section-content">
+          ✅ Conclusão
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <!-- Conteúdo extra F -->
+          </div>
+        </div>
+      </div>
+      <div class="section" data-grupo="G">
+        <div class="section-content">
+          🎓 Fim do Trabalho
+          <div class="conteudo-invisivil-até-tamanho-duplicar">
+            <!-- Conteúdo extra G -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script  type="module" src="script.js"></script>
+</body>
+</html>

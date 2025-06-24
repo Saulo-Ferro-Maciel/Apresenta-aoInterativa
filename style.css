@@ -1,0 +1,257 @@
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow: hidden;
+  height: 100vh;
+  font-family: sans-serif;
+  background: #87CEEB;
+}
+
+.camera {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 5000px;
+  pointer-events: none;
+}
+
+.background {
+  background-size: cover;
+  z-index: 0;
+}
+
+.middleground {
+  background: url('https://i.imgur.com/n8KDz0H.png') repeat-x;
+  background-size: cover;
+  z-index: 1;
+}
+
+.game-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  height: 100vh;
+  width: 5000px;
+  z-index: 2;
+}
+
+.ground {
+  position: fixed;
+  bottom: 0;
+  height: 150px;
+  width: 5000px;
+  z-index: 10;
+  overflow: hidden;
+  will-change: transform;
+  display: flex;
+  flex-direction: column;
+}
+
+.grass {
+  flex: 0 0 15%;
+  background: linear-gradient(to top, #4caf50, #81c784);
+  background-repeat: repeat-x;
+}
+
+.dirt {
+  flex: 0 0 85%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dirt-layer {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  background-repeat: repeat-x;
+}
+
+.dirt-layer.top { background: #a1887f; }
+.dirt-layer.middle { background: #8d6e63; }
+.dirt-layer.bottom { background: #5d4037; }
+
+.dot {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.player {
+  position: absolute;
+  bottom: calc(150px + 5%);
+  width: 50px;
+  height: 50px;
+  background: none !important;
+  border-radius: 50%;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  user-select: none;
+  /* Não coloque nenhuma animação aqui! */
+}
+
+/* Gira para a direita */
+.player.girando-direita {
+  animation: girarBolaDireita 0.5s linear infinite;
+}
+
+.player.andando {
+  animation: andarPlayer 0.25s steps(2) infinite;
+  transform: scaleX(var(--facing, 1));
+}
+.player.saltando {
+  animation: saltarPlayer 0.5s linear infinite;
+  transform: scaleX(var(--facing, 1));
+}
+
+@keyframes andarPlayer {
+  0% { filter: brightness(1);}
+  50% { filter: brightness(1.2);}
+  100% { filter: brightness(1);}
+}
+
+@keyframes saltarPlayer {
+  0% { transform: scaleY(1) scaleX(var(--facing, 1)); }
+  50% { transform: scaleY(1.2) scaleX(var(--facing, 1)); }
+  100% { transform: scaleY(1) scaleX(var(--facing, 1)); }
+}
+
+.cloud {
+  position: absolute;
+  width: 120px;
+  height: 60px;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0.4;
+}
+
+.section {
+  width: 800px;
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  border-right: 2px solid white;
+  position: relative;
+  transition: width 0.7s cubic-bezier(.4,2,.6,1), box-shadow 0.5s;
+  text-align: center;
+  z-index: 1;
+}
+
+.section:nth-child(even),.section {
+  background: #3f51b594;
+}
+
+.section.expandida {
+  width: 1200px; /* largura expandida */
+  box-shadow: 0 0 40px 10px rgba(0,0,0,0.15);
+  z-index: 5;
+}
+
+.section-content {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  text-align: center;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.7s;
+}
+
+/* Conteúdo extra só aparece quando expandida */
+.conteudo-invisivil-até-tamanho-duplicar {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.7s;
+}
+
+.section.expandida .conteudo-invisivil-até-tamanho-duplicar {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Logo quadrada */
+.logo-square {
+  background: white;
+  border-radius: 12%;
+  width: 130px;
+  height: 130px;
+  overflow: hidden;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.logo-square img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Plataformas animadas */
+.platform {
+  position: absolute;
+  z-index: 10;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.platform .dirt-layer {
+  width: 100%;
+  height: 33.33%;
+  position: relative;
+}
+.platform .dirt-layer.top { background: #a1887f; }
+.platform .dirt-layer.middle { background: #8d6e63; }
+.platform .dirt-layer.bottom { background: #5d4037; }
+.platform.tremor {
+  animation: tremor 0.5s linear;
+}
+.platform.caindo {
+  animation: cair 0.7s linear forwards;
+}
+@keyframes tremor {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+@keyframes cair {
+  to { transform: translateY(200px); opacity: 0; }
+}
+
+/* Estrela girando */
+.estrela {
+  position: absolute;
+  font-size: 40px;
+  z-index: 20;
+  pointer-events: none;
+  animation: girarEstrela 1s linear infinite;
+}
+@keyframes girarEstrela {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
