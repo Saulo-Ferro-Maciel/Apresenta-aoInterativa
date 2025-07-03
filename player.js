@@ -10,6 +10,7 @@ export class Player {
     this.maxJumps = 2;
     this.jumpCount = 0;
     this.groundY = 0;
+    this.rotationTimeout = null; // ⬅️ Novo: controle do tempo de rotação
     this.setupVisual();
     this.setPosition(this.x, this.y);
   }
@@ -49,7 +50,6 @@ export class Player {
       this.vy = 0;
       this.jumpCount = 0;
       this.el.classList.remove('saltando');
-      this.el.classList.remove('girando-direita', 'girando-esquerda');
     }
 
     this.setPosition(this.x, this.y);
@@ -60,35 +60,58 @@ export class Player {
       this.vy = this.jumpStrength;
       this.jumpCount++;
       this.setJumpingAnimation();
+      this.startRotationTimer(); // ⬅️ inicia controle do tempo
     }
   }
 
   moveLeft(speed) {
     this.vx = -speed;
     this.setWalkingAnimation('esquerda');
+    this.startRotationTimer(); // ⬅️ inicia controle do tempo
   }
 
   moveRight(speed) {
     this.vx = speed;
     this.setWalkingAnimation('direita');
+    this.startRotationTimer(); // ⬅️ inicia controle do tempo
   }
 
   stop() {
     this.vx = 0;
-    this.el.classList.remove('girando-direita', 'girando-esquerda');
+    // rotação controlada por tempo, não remove aqui
   }
 
   setWalkingAnimation(direcao) {
-    this.el.classList.remove('saltando', 'girando-direita', 'girando-esquerda');
+    this.el.classList.remove('saltando');
     if (direcao === 'direita') {
       this.el.classList.add('girando-direita');
+      this.el.classList.remove('girando-esquerda');
     } else {
       this.el.classList.add('girando-esquerda');
+      this.el.classList.remove('girando-direita');
     }
   }
 
   setJumpingAnimation() {
     this.el.classList.add('saltando');
     this.el.classList.remove('girando-direita', 'girando-esquerda');
+  }
+
+  clearRotation() {
+    this.el.classList.remove('girando-direita', 'girando-esquerda');
+  }
+  cancelRotationTimer() {
+    if (this.rotationTimeout) {
+      clearTimeout(this.rotationTimeout);
+      this.rotationTimeout = null;
+    }
+    this.clearRotation();
+  }
+  
+  startRotationTimer() {
+    if (this.rotationTimeout) clearTimeout(this.rotationTimeout);
+    this.rotationTimeout = setTimeout(() => {
+      this.clearRotation();
+    }, 5000);
   }
 }
