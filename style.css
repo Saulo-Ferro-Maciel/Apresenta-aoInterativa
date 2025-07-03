@@ -104,6 +104,11 @@ p {
   opacity: 0.3;
 }
 
+.platform[data-grupo="GRASS"] {
+  z-index: 20;
+  position: absolute;
+}
+
 /* Jogador */
 .player {
   position: absolute;
